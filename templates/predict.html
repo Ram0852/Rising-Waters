@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Predict Flood Risk | Rising Waters</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="brand">🌊 Rising Waters</div>
+    <div>
+      <a href="{{ url_for('home') }}">Home</a>
+      <a href="{{ url_for('predict_form') }}">Predict Flood Risk</a>
+    </div>
+  </nav>
+
+  <main>
+    <h1 style="color:var(--deep-blue); text-align:center;">Enter Current Weather Readings</h1>
+    <p style="text-align:center; color:#4a5c6b; margin-bottom:30px;">
+      Fill in the values below to get an instant flood risk prediction.
+    </p>
+
+    {% if error %}
+      <div class="error-box">⚠️ Something went wrong: {{ error }}</div>
+    {% endif %}
+
+    <form class="predict-form" method="POST" action="{{ url_for('predict') }}">
+      <div class="form-grid">
+        {% for name, cfg in fields %}
+          <div class="field">
+            <label for="{{ name }}">{{ cfg.label }}</label>
+            <input
+              type="number"
+              step="{{ cfg.step }}"
+              min="{{ cfg.min }}"
+              max="{{ cfg.max }}"
+              name="{{ name }}"
+              id="{{ name }}"
+              value="{{ cfg.default }}"
+              required
+            >
+          </div>
+        {% endfor %}
+      </div>
+
+      <div class="form-actions">
+        <button type="submit" class="btn">Predict Flood Risk</button>
+      </div>
+    </form>
+  </main>
+
+  <footer>Rising Waters — A Machine Learning Approach to Flood Prediction</footer>
+</body>
+</html>

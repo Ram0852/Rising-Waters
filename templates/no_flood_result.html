@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>No Flood Chance | Rising Waters</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="brand">🌊 Rising Waters</div>
+    <div>
+      <a href="{{ url_for('home') }}">Home</a>
+      <a href="{{ url_for('predict_form') }}">Predict Flood Risk</a>
+    </div>
+  </nav>
+
+  <main>
+    <section class="result-page">
+      <div class="result-icon no-flood">✅</div>
+      <h1 class="no-flood">Low Flood Risk</h1>
+      {% if probability is not none %}
+        <p class="probability">Predicted flood probability: <strong>{{ probability }}%</strong></p>
+      {% endif %}
+      <p style="color:#4a5c6b;">Model used: {{ model_name }}</p>
+
+      <div class="advice-box">
+        <strong>Recommendation:</strong>
+        Current conditions indicate a low flood risk. Continue routine monitoring
+        of rainfall and river levels, especially during monsoon season, and
+        re-check predictions as new weather data becomes available.
+      </div>
+
+      <table class="summary-table">
+        <thead>
+          <tr><th colspan="2">Submitted Readings</th></tr>
+        </thead>
+        <tbody>
+          {% for label, value in inputs.items() %}
+          <tr><th>{{ label }}</th><td>{{ value }}</td></tr>
+          {% endfor %}
+        </tbody>
+      </table>
+
+      <div class="actions-row">
+        <a class="btn" href="{{ url_for('predict_form') }}">Run Another Prediction</a>
+        <a class="btn secondary" href="{{ url_for('home') }}">Back to Home</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>Rising Waters — A Machine Learning Approach to Flood Prediction</footer>
+</body>
+</html>

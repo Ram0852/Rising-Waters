@@ -1,0 +1,23 @@
+{
+  "best_model_name": "XGBoost",
+  "accuracy": 0.7533333333333333,
+  "feature_names": [
+    "ANNUAL_RAINFALL",
+    "SEASONAL_RAINFALL",
+    "CLOUD_VISIBILITY",
+    "HUMIDITY",
+    "TEMPERATURE",
+    "RIVER_WATER_LEVEL",
+    "WIND_SPEED",
+    "DRAINAGE_QUALITY",
+    "ELEVATION",
+    "HISTORICAL_FLOOD_OCCURRENCES"
+  ],
+  "xgboost_used": false,
+  "model_scores": {
+    "Decision Tree": 0.6566666666666666,
+    "Random Forest": 0.7383333333333333,
+    "KNN": 0.7333333333333333,
+    "XGBoost": 0.7533333333333333
+  }
+}

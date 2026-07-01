@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rising Waters | Flood Prediction System</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="brand">🌊 Rising Waters</div>
+    <div>
+      <a href="{{ url_for('home') }}">Home</a>
+      <a href="{{ url_for('predict_form') }}">Predict Flood Risk</a>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero">
+      <h1>Rising Waters</h1>
+      <p>
+        A machine-learning powered early warning system that predicts flood
+        risk from rainfall, cloud visibility, and seasonal weather patterns —
+        helping communities and disaster response teams act before it's too late.
+      </p>
+      <a class="btn" href="{{ url_for('predict_form') }}">Check Flood Risk →</a>
+      <div class="badge">Powered by {{ model_name }} · {{ accuracy }}% test accuracy</div>
+    </section>
+
+    <div class="card-grid">
+      <div class="info-card">
+        <h3>🌧️ Rainfall Analysis</h3>
+        <p>Uses annual and seasonal rainfall data to detect patterns that historically precede flood events.</p>
+      </div>
+      <div class="info-card">
+        <h3>☁️ Weather Signals</h3>
+        <p>Incorporates cloud visibility, humidity, temperature and wind speed for a fuller meteorological picture.</p>
+      </div>
+      <div class="info-card">
+        <h3>🏞️ Terrain & Infrastructure</h3>
+        <p>Accounts for river water levels, elevation, and drainage quality — key drivers of local flood risk.</p>
+      </div>
+      <div class="info-card">
+        <h3>📊 Multi-Model Comparison</h3>
+        <p>Trained and benchmarked Decision Tree, Random Forest, KNN and XGBoost classifiers to select the best performer.</p>
+      </div>
+      <div class="info-card">
+        <h3>⚡ Instant Predictions</h3>
+        <p>Enter current readings and get an immediate Flood / No Flood risk classification with confidence score.</p>
+      </div>
+      <div class="info-card">
+        <h3>☁️ Cloud-Ready</h3>
+        <p>Designed for deployment on IBM Cloud so authorities can access it from anywhere during monsoon season.</p>
+      </div>
+    </div>
+  </main>
+
+  <footer>Rising Waters — A Machine Learning Approach to Flood Prediction</footer>
+</body>
+</html>
